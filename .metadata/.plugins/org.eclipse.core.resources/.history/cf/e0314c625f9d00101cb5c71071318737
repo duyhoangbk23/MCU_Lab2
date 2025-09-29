@@ -246,62 +246,55 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-const int MAX_LED = 4;
-int index_led = 0;
-int led_buffer[4] = {1, 2, 3, 4};
-
-void update7SEG(int index){
-//---------Testing random input-----------------
-//	led_buffer[index]=rand()%10;
-//----------------------------------------------
-	switch (index) {
-    case 0:
-    	HAL_GPIO_WritePin(GPIOA, EN1_Pin|EN2_Pin|EN3_Pin, GPIO_PIN_SET);
-        HAL_GPIO_WritePin(GPIOA, EN0_Pin, GPIO_PIN_RESET);
-        display7SEG(led_buffer[0]);
-        break;
-    case 1:
-    	HAL_GPIO_WritePin(GPIOA, EN0_Pin|EN2_Pin|EN3_Pin, GPIO_PIN_SET);
-        HAL_GPIO_WritePin(GPIOA, EN1_Pin, GPIO_PIN_RESET);
-        display7SEG(led_buffer[1]);
-        break;
-    case 2:
-    	HAL_GPIO_WritePin(GPIOA, EN0_Pin|EN1_Pin|EN3_Pin, GPIO_PIN_SET);
-        HAL_GPIO_WritePin(GPIOA, EN2_Pin, GPIO_PIN_RESET);
-        display7SEG(led_buffer[2]);
-        break;
-    case 3:
-    	HAL_GPIO_WritePin(GPIOA, EN0_Pin|EN1_Pin|EN2_Pin, GPIO_PIN_SET);
-        HAL_GPIO_WritePin(GPIOA, EN3_Pin, GPIO_PIN_RESET);
-        display7SEG(led_buffer[3]);
-        break;
-    default:
-        break;
-    }
-}
-
 int counter = 0;
+int currentSeg = 0;
+
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
         counter++;
 
-        // Blink DOT + RED LED every 1000 ms
+        // Blink DOT every 1000 ms
         if (counter % 100 == 0) {
             HAL_GPIO_TogglePin(GPIOA, DOT_Pin);
             HAL_GPIO_TogglePin(GPIOA, LED_RED_Pin);
         }
 
-        // Switch 7SEG every 50 ms
+        // Switch 7-segment every 500 ms
         if (counter % 50 == 0) {
-            update7SEG(index_led);
-            index_led++;
-            if (index_led >= MAX_LED) {
-                index_led = 0;
+            // Disable all 7SEG
+            HAL_GPIO_WritePin(GPIOA, EN0_Pin | EN1_Pin | EN2_Pin | EN3_Pin, GPIO_PIN_SET);
+
+            // Enable current 7-segment and display number
+            switch (currentSeg) {
+                case 0:
+                    HAL_GPIO_WritePin(GPIOA, EN0_Pin, GPIO_PIN_RESET);
+                    display7SEG(1);
+                    break;
+                case 1:
+                    HAL_GPIO_WritePin(GPIOA, EN1_Pin, GPIO_PIN_RESET);
+                    display7SEG(2);
+                    break;
+                case 2:
+                    HAL_GPIO_WritePin(GPIOA, EN2_Pin, GPIO_PIN_RESET);
+                    display7SEG(3);
+                    break;
+                case 3:
+                    HAL_GPIO_WritePin(GPIOA, EN3_Pin, GPIO_PIN_RESET);
+                    display7SEG(0);
+                    break;
             }
+
+            // Move to next 7-segment
+            currentSeg++;
+            if (currentSeg > 3) currentSeg = 0;
         }
 
-        if (counter >= 100) counter = 0; // reset every sec
-
+        // Optional: reset counter to prevent overflow
+        if (counter >= 200) counter = 0; // resets every 2 seconds
 }
+
+
+/* USER CODE END 4 */
+
 /**
   * @brief  This function is executed in case of error occurrence.
   * @retval None
