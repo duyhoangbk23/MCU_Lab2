@@ -111,6 +111,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT (& htim2 );
 
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -218,17 +219,14 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, DOT_Pin|LED_RED_Pin|EN0_Pin|EN1_Pin
-                          |EN2_Pin|EN3_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, LED_RED_Pin|EN0_Pin|EN1_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, SEG0_Pin|SEG1_Pin|SEG2_Pin|SEG3_Pin
                           |SEG4_Pin|SEG5_Pin|SEG6_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : DOT_Pin LED_RED_Pin EN0_Pin EN1_Pin
-                           EN2_Pin EN3_Pin */
-  GPIO_InitStruct.Pin = DOT_Pin|LED_RED_Pin|EN0_Pin|EN1_Pin
-                          |EN2_Pin|EN3_Pin;
+  /*Configure GPIO pins : LED_RED_Pin EN0_Pin EN1_Pin */
+  GPIO_InitStruct.Pin = LED_RED_Pin|EN0_Pin|EN1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -246,52 +244,29 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-int counter = 0;
-int currentSeg = 0;
+int counter = 100;
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-        counter++;
+        counter--;
 
-        // Blink DOT every 1000 ms
-        if (counter % 100 == 0) {
-            HAL_GPIO_TogglePin(GPIOA, DOT_Pin);
+        if (counter <=0) {
+            counter = 100;
             HAL_GPIO_TogglePin(GPIOA, LED_RED_Pin);
         }
 
-        // Switch 7-segment every 500 ms
-        if (counter % 50 == 0) {
-            // Disable all 7SEG
-            HAL_GPIO_WritePin(GPIOA, EN0_Pin | EN1_Pin | EN2_Pin | EN3_Pin, GPIO_PIN_SET);
-
-            // Enable current 7-segment and display number
-            switch (currentSeg) {
-                case 0:
-                    HAL_GPIO_WritePin(GPIOA, EN0_Pin, GPIO_PIN_RESET);
-                    display7SEG(1);
-                    break;
-                case 1:
-                    HAL_GPIO_WritePin(GPIOA, EN1_Pin, GPIO_PIN_RESET);
-                    display7SEG(2);
-                    break;
-                case 2:
-                    HAL_GPIO_WritePin(GPIOA, EN2_Pin, GPIO_PIN_RESET);
-                    display7SEG(3);
-                    break;
-                case 3:
-                    HAL_GPIO_WritePin(GPIOA, EN3_Pin, GPIO_PIN_RESET);
-                    display7SEG(0);
-                    break;
-            }
-
-            // Move to next 7-segment
-            currentSeg++;
-            if (currentSeg > 3) currentSeg = 0;
+        if (counter>50) {
+            // Bật LED1, tắt LED2
+            HAL_GPIO_WritePin(GPIOA, EN0_Pin, GPIO_PIN_RESET);
+            HAL_GPIO_WritePin(GPIOA, EN1_Pin, GPIO_PIN_SET);
+            display7SEG(1);
+        } else {
+            // Bật LED2, tắt LED1
+            HAL_GPIO_WritePin(GPIOA, EN0_Pin, GPIO_PIN_SET);
+            HAL_GPIO_WritePin(GPIOA, EN1_Pin, GPIO_PIN_RESET);
+            display7SEG(2);
         }
 
-        // Optional: reset counter to prevent overflow
-        if (counter >= 200) counter = 0; // resets every 2 seconds
 }
-
 
 /* USER CODE END 4 */
 
@@ -309,6 +284,7 @@ void Error_Handler(void)
   }
   /* USER CODE END Error_Handler_Debug */
 }
+
 
 #ifdef  USE_FULL_ASSERT
 /**
