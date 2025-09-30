@@ -174,7 +174,6 @@ int main(void)
 	    if(timer0_flag){
 	        // update every sec
 	        HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin); //Toggle Pin PA5
-	        HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
 	        second++;
 	        if(second >= 60){
 	            second = 0;
@@ -186,7 +185,20 @@ int main(void)
 	            }
 	        }
 	        updateClockBuffer(hour, minute);
-	        setTimer0(1000);
+	        setTimer0(1000);   // reset lại 1s
+	    }
+
+	    // ---- Dùng timer0_counter cho DOT và 7SEG ----
+	    // DOT nháy mỗi 0.5s
+	    if(timer0_counter % 50 == 0){   // 50 * 10ms = 500ms
+	        HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
+	    }
+
+	    // 7SEG đổi LED mỗi 0.25s
+	    if(timer0_counter % 25 == 0){   // 25 * 10ms = 250ms
+	        index_led++;
+	        if(index_led > 3) index_led = 0;
+	        update7SEG(index_led);
 	    }
 	}
 
@@ -315,16 +327,9 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-int counter=0;
+
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 	timer_run();
-	counter++;
-	if (counter>100) counter=0;
-	if (counter %25==0){
-		update7SEG(index_led);
-		index_led++;
-		if(index_led>3) index_led=0;
-	}
 }
 
 /* USER CODE END 4 */

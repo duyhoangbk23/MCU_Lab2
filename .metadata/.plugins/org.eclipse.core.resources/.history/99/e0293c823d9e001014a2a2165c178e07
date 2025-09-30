@@ -186,7 +186,14 @@ int main(void)
 	            }
 	        }
 	        updateClockBuffer(hour, minute);
-	        setTimer0(1000);
+	        setTimer0(1000);   // reset timer 1s
+	    }
+
+	    // 7SEG đổi LED mỗi 0.25s
+	    if(timer0_counter % 25 == 0){   // 25 * 10ms = 250ms
+	        index_led++;
+	        if(index_led > 3) index_led = 0;
+	        update7SEG(index_led);
 	    }
 	}
 
@@ -315,16 +322,9 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-int counter=0;
+
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 	timer_run();
-	counter++;
-	if (counter>100) counter=0;
-	if (counter %25==0){
-		update7SEG(index_led);
-		index_led++;
-		if(index_led>3) index_led=0;
-	}
 }
 
 /* USER CODE END 4 */
