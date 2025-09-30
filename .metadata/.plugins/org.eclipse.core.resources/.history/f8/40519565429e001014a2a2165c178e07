@@ -79,6 +79,7 @@ void display7SEG(int num) {
 }
 int timer0_counter = 0;
 int timer1_counter = 0;
+
 int timer0_flag = 0;
 int timer1_flag = 0;
 
@@ -86,10 +87,6 @@ int TIMER_CYCLE = 10;
 void setTimer0(int duration){
 	timer0_counter = duration /TIMER_CYCLE;
 	timer0_flag = 0;
-}
-void setTimer1(int duration){
-	timer1_counter = duration /TIMER_CYCLE;
-	timer1_flag = 0;
 }
 void timer_run(){
 	if(timer0_counter > 0){
@@ -180,10 +177,16 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	int hour = 15, minute = 8, second = 50;
-	setTimer1(1000); // Timer for clock update
-	setTimer0(250);  // Timer for LED scanning
+	setTimer0(1000);
 	while (1){
-	    if(timer1_flag){
+		counter++;
+		if (counter>100) counter=0;
+		if (counter %25==0){
+			update7SEG(index_led);
+			index_led++;
+			if(index_led>3) index_led=0;
+		}
+	    if(timer0_flag){
 	        // update every sec
 	        HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin); //Toggle Pin PA5
 	        HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
@@ -198,14 +201,7 @@ int main(void)
 	            }
 	        }
 	        updateClockBuffer(hour, minute);
-	        setTimer1(1000);
-	    }
-	    if(timer0_flag){
-	        // update every 250 ms
-	        update7SEG(index_led);
-	        index_led++;
-	        if(index_led >= MAX_LED) index_led = 0;
-	        setTimer0(250);
+	        setTimer0(1000);
 	    }
 	}
 
