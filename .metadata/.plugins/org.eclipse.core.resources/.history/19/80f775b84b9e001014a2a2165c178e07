@@ -179,35 +179,12 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	int hour = 15, minute = 8, second = 50;
-	setTimer1(1000); // Timer for clock update
-	setTimer0(250);  // Timer for LED scanning
-	while (1){
-	    if(timer1_flag){
-	        // update every sec
-	        HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin); //Toggle Pin PA5
-	        HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
-	        second++;
-	        if(second >= 60){
-	            second = 0;
-	            minute++;
-	            if(minute >= 60){
-	                minute = 0;
-	                hour++;
-	                if(hour >=24) hour = 0;
-	            }
-	        }
-	        updateClockBuffer(hour, minute);
-	        setTimer1(1000);
-	    }
-	    if(timer0_flag){
-	        // update every 250 ms
-	        update7SEG(index_led);
-	        index_led++;
-	        if(index_led >= MAX_LED) index_led = 0;
-	        setTimer0(250);
-	    }
-	}
+  while (1)
+  {
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
+  }
   /* USER CODE END 3 */
 }
 
