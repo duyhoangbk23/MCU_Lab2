@@ -303,10 +303,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 		counter = 0; // reset every sec
 
 	// Blink DOT + RED LED every 1000 ms (1s)
-//	if (counter % 100 == 0) {
-//		HAL_GPIO_TogglePin(GPIOA, DOT_Pin);
-//		HAL_GPIO_TogglePin(GPIOA, LED_RED_Pin);
-//	}
+	if (counter % 100 == 0) {
+		HAL_GPIO_TogglePin(GPIOA, DOT_Pin);
+		HAL_GPIO_TogglePin(GPIOA, LED_RED_Pin);
+	}
 
 	// Switch 7SEG every 250 ms
 	if (counter % 25 == 0) {
