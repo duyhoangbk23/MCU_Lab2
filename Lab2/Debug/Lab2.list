@@ -247,6 +247,9 @@ int main(void)
 	setTimer0(1000);
  8000236:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
  800023a:	f7ff ffbb 	bl	80001b4 <setTimer0>
+//	setTimer0(10);
+//	setTimer0(1);
+
 	while (1){
 	    if(timer0_flag == 1){
  800023e:	4b07      	ldr	r3, [pc, #28]	; (800025c <main+0x40>)
