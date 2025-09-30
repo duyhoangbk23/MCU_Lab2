@@ -189,8 +189,8 @@ int main(void)
 		    updateClockBuffer(hour, minute);
 		    setTimer0(1000);
 	    }
-	    if(timer0_counter % 25==0){
-	    	if (timer0_counter %50==0){
+	    if(timer0_counter % 50){
+	    	if (timer0_counter == max_counter/2){
 	    		HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
 	    	}
 	    	index_led++;

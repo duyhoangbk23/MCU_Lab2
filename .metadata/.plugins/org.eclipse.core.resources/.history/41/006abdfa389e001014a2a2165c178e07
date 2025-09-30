@@ -170,11 +170,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 	int hour = 15, minute = 8, second = 50;
 	setTimer0(1000);
+	int max_counter= timer0_counter;
 	while (1){
 	    if(timer0_flag == 1){
 	        HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
-		    //update time
-	        second++;
+		    second++;
 		    if(second >= 60){
 		       second = 0;
 		       minute++;
@@ -189,13 +189,12 @@ int main(void)
 		    updateClockBuffer(hour, minute);
 		    setTimer0(1000);
 	    }
-	    if(timer0_counter % 25==0){
-	    	if (timer0_counter %50==0){
+	    if(timer0_counter == max_counter/4){
+	    	if (timer0_counter == max_counter/2){
 	    		HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
 	    	}
 	    	index_led++;
-	    	if(index_led>3) index_led=0;
-	    	update7SEG(index_led);
+	    	display7SEG(led_buffer[index_led]);
 	    }
 	}
   /* USER CODE END 3 */
