@@ -1152,3 +1152,425 @@ Finished building: Lab2.hex
  
 Finished building: Lab2.list
  
+07:39:53 **** Incremental Build of configuration Debug for project Lab2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lab2.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\ADUY\251\VXL_VDK\MCU_Lab2\Lab2\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab2.elf
+ 
+arm-none-eabi-size   Lab2.elf 
+arm-none-eabi-objdump -h -S  Lab2.elf  > "Lab2.list"
+arm-none-eabi-objcopy  -O ihex  Lab2.elf  "Lab2.hex"
+arm-none-eabi-objcopy  -O binary  Lab2.elf  "Lab2.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8204	     48	   1680	   9932	   26cc	Lab2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lab2.hex
+Finished building: Lab2.bin
+ 
+ 
+Finished building: Lab2.list
+ 
+07:42:28 **** Incremental Build of configuration Debug for project Lab2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lab2.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\ADUY\251\VXL_VDK\MCU_Lab2\Lab2\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab2.elf
+ 
+arm-none-eabi-size   Lab2.elf 
+arm-none-eabi-objdump -h -S  Lab2.elf  > "Lab2.list"
+arm-none-eabi-objcopy  -O ihex  Lab2.elf  "Lab2.hex"
+arm-none-eabi-objcopy  -O binary  Lab2.elf  "Lab2.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8204	     48	   1680	   9932	   26cc	Lab2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lab2.hex
+Finished building: Lab2.bin
+ 
+ 
+Finished building: Lab2.list
+ 
+07:43:42 **** Incremental Build of configuration Debug for project Lab2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lab2.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\ADUY\251\VXL_VDK\MCU_Lab2\Lab2\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab2.elf
+ 
+arm-none-eabi-size   Lab2.elf 
+arm-none-eabi-objdump -h -S  Lab2.elf  > "Lab2.list"
+arm-none-eabi-objcopy  -O ihex  Lab2.elf  "Lab2.hex"
+arm-none-eabi-objcopy  -O binary  Lab2.elf  "Lab2.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8204	     48	   1680	   9932	   26cc	Lab2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lab2.hex
+Finished building: Lab2.bin
+ 
+ 
+Finished building: Lab2.list
+ 
+07:48:37 **** Incremental Build of configuration Debug for project Lab2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lab2.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\ADUY\251\VXL_VDK\MCU_Lab2\Lab2\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab2.elf
+ 
+arm-none-eabi-size   Lab2.elf 
+arm-none-eabi-objdump -h -S  Lab2.elf  > "Lab2.list"
+arm-none-eabi-objcopy  -O ihex  Lab2.elf  "Lab2.hex"
+arm-none-eabi-objcopy  -O binary  Lab2.elf  "Lab2.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8204	     48	   1680	   9932	   26cc	Lab2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lab2.hex
+Finished building: Lab2.bin
+ 
+ 
+Finished building: Lab2.list
+ 
+08:09:05 **** Incremental Build of configuration Debug for project Lab2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'displayMatrixCol':
+../Core/Src/main.c:181:5: warning: implicit declaration of function 'DisableMatrixCols' [-Wimplicit-function-declaration]
+  181 |     DisableMatrixCols();
+      |     ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:210:6: warning: conflicting types for 'DisableMatrixCols'
+  210 | void DisableMatrixCols(){
+      |      ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c:181:5: note: previous implicit declaration of 'DisableMatrixCols' was here
+  181 |     DisableMatrixCols();
+      |     ^~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Lab2.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\ADUY\251\VXL_VDK\MCU_Lab2\Lab2\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab2.elf
+ 
+arm-none-eabi-size   Lab2.elf 
+arm-none-eabi-objdump -h -S  Lab2.elf  > "Lab2.list"
+arm-none-eabi-objcopy  -O ihex  Lab2.elf  "Lab2.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8320	     48	   1672	  10040	   2738	Lab2.elf
+arm-none-eabi-objcopy  -O binary  Lab2.elf  "Lab2.bin"
+Finished building: default.size.stdout
+ 
+Finished building: Lab2.hex
+Finished building: Lab2.bin
+ 
+ 
+Finished building: Lab2.list
+ 
+08:16:08 **** Incremental Build of configuration Debug for project Lab2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lab2.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\ADUY\251\VXL_VDK\MCU_Lab2\Lab2\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab2.elf
+ 
+arm-none-eabi-size   Lab2.elf 
+arm-none-eabi-objdump -h -S  Lab2.elf  > "Lab2.list"
+arm-none-eabi-objcopy  -O ihex  Lab2.elf  "Lab2.hex"
+arm-none-eabi-objcopy  -O binary  Lab2.elf  "Lab2.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8320	     48	   1672	  10040	   2738	Lab2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lab2.bin
+Finished building: Lab2.hex
+ 
+ 
+Finished building: Lab2.list
+ 
+08:18:24 **** Incremental Build of configuration Debug for project Lab2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'displayMatrixCol':
+../Core/Src/main.c:203:13: warning: unused variable 'col_data' [-Wunused-variable]
+  203 |     uint8_t col_data = matrix_buffer[col];
+      |             ^~~~~~~~
+arm-none-eabi-gcc -o "Lab2.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\ADUY\251\VXL_VDK\MCU_Lab2\Lab2\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab2.elf
+ 
+arm-none-eabi-size   Lab2.elf 
+arm-none-eabi-objdump -h -S  Lab2.elf  > "Lab2.list"
+arm-none-eabi-objcopy  -O ihex  Lab2.elf  "Lab2.hex"
+arm-none-eabi-objcopy  -O binary  Lab2.elf  "Lab2.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8128	     48	   1672	   9848	   2678	Lab2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lab2.hex
+Finished building: Lab2.bin
+ 
+ 
+Finished building: Lab2.list
+ 
+08:23:52 **** Incremental Build of configuration Debug for project Lab2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lab2.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\ADUY\251\VXL_VDK\MCU_Lab2\Lab2\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab2.elf
+ 
+arm-none-eabi-size   Lab2.elf 
+arm-none-eabi-objdump -h -S  Lab2.elf  > "Lab2.list"
+arm-none-eabi-objcopy  -O ihex  Lab2.elf  "Lab2.hex"
+arm-none-eabi-objcopy  -O binary  Lab2.elf  "Lab2.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8320	     48	   1672	  10040	   2738	Lab2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lab2.hex
+Finished building: Lab2.bin
+ 
+ 
+Finished building: Lab2.list
+ 
+08:26:21 **** Incremental Build of configuration Debug for project Lab2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lab2.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\ADUY\251\VXL_VDK\MCU_Lab2\Lab2\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab2.elf
+ 
+arm-none-eabi-size   Lab2.elf 
+arm-none-eabi-objdump -h -S  Lab2.elf  > "Lab2.list"
+arm-none-eabi-objcopy  -O ihex  Lab2.elf  "Lab2.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8312	     48	   1672	  10032	   2730	Lab2.elf
+arm-none-eabi-objcopy  -O binary  Lab2.elf  "Lab2.bin"
+Finished building: default.size.stdout
+ 
+Finished building: Lab2.hex
+Finished building: Lab2.bin
+ 
+ 
+Finished building: Lab2.list
+ 
+08:28:30 **** Incremental Build of configuration Debug for project Lab2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lab2.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\ADUY\251\VXL_VDK\MCU_Lab2\Lab2\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab2.elf
+ 
+arm-none-eabi-size   Lab2.elf 
+arm-none-eabi-objdump -h -S  Lab2.elf  > "Lab2.list"
+arm-none-eabi-objcopy  -O ihex  Lab2.elf  "Lab2.hex"
+arm-none-eabi-objcopy  -O binary  Lab2.elf  "Lab2.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8316	     48	   1672	  10036	   2734	Lab2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lab2.bin
+Finished building: Lab2.hex
+ 
+ 
+Finished building: Lab2.list
+ 
+08:28:43 **** Incremental Build of configuration Debug for project Lab2 ****
+make -j22 all 
+arm-none-eabi-size   Lab2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8316	     48	   1672	  10036	   2734	Lab2.elf
+Finished building: default.size.stdout
+ 
+08:29:24 **** Incremental Build of configuration Debug for project Lab2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lab2.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\ADUY\251\VXL_VDK\MCU_Lab2\Lab2\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab2.elf
+ 
+arm-none-eabi-size   Lab2.elf 
+arm-none-eabi-objdump -h -S  Lab2.elf  > "Lab2.list"
+arm-none-eabi-objcopy  -O ihex  Lab2.elf  "Lab2.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8316	     48	   1672	  10036	   2734	Lab2.elf
+arm-none-eabi-objcopy  -O binary  Lab2.elf  "Lab2.bin"
+Finished building: default.size.stdout
+ 
+Finished building: Lab2.hex
+Finished building: Lab2.bin
+ 
+ 
+Finished building: Lab2.list
+ 
+08:34:13 **** Incremental Build of configuration Debug for project Lab2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lab2.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\ADUY\251\VXL_VDK\MCU_Lab2\Lab2\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab2.elf
+ 
+arm-none-eabi-size   Lab2.elf 
+arm-none-eabi-objdump -h -S  Lab2.elf  > "Lab2.list"
+arm-none-eabi-objcopy  -O ihex  Lab2.elf  "Lab2.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8316	     48	   1672	  10036	   2734	Lab2.elf
+arm-none-eabi-objcopy  -O binary  Lab2.elf  "Lab2.bin"
+Finished building: default.size.stdout
+ 
+Finished building: Lab2.hex
+ 
+Finished building: Lab2.bin
+Finished building: Lab2.list
+ 
+ 
+08:35:00 **** Incremental Build of configuration Debug for project Lab2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lab2.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\ADUY\251\VXL_VDK\MCU_Lab2\Lab2\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab2.elf
+ 
+arm-none-eabi-size   Lab2.elf 
+arm-none-eabi-objdump -h -S  Lab2.elf  > "Lab2.list"
+arm-none-eabi-objcopy  -O ihex  Lab2.elf  "Lab2.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8316	     48	   1672	  10036	   2734	Lab2.elf
+arm-none-eabi-objcopy  -O binary  Lab2.elf  "Lab2.bin"
+Finished building: default.size.stdout
+ 
+Finished building: Lab2.hex
+Finished building: Lab2.bin
+ 
+ 
+Finished building: Lab2.list
+ 
+08:36:20 **** Incremental Build of configuration Debug for project Lab2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lab2.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\ADUY\251\VXL_VDK\MCU_Lab2\Lab2\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab2.elf
+ 
+arm-none-eabi-size   Lab2.elf 
+arm-none-eabi-objdump -h -S  Lab2.elf  > "Lab2.list"
+arm-none-eabi-objcopy  -O ihex  Lab2.elf  "Lab2.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8316	     48	   1672	  10036	   2734	Lab2.elf
+arm-none-eabi-objcopy  -O binary  Lab2.elf  "Lab2.bin"
+Finished building: default.size.stdout
+ 
+Finished building: Lab2.hex
+Finished building: Lab2.bin
+ 
+ 
+Finished building: Lab2.list
+ 
+08:37:01 **** Incremental Build of configuration Debug for project Lab2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lab2.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\ADUY\251\VXL_VDK\MCU_Lab2\Lab2\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab2.elf
+ 
+arm-none-eabi-size   Lab2.elf 
+arm-none-eabi-objdump -h -S  Lab2.elf  > "Lab2.list"
+arm-none-eabi-objcopy  -O ihex  Lab2.elf  "Lab2.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8316	     48	   1672	  10036	   2734	Lab2.elf
+arm-none-eabi-objcopy  -O binary  Lab2.elf  "Lab2.bin"
+Finished building: default.size.stdout
+ 
+Finished building: Lab2.hex
+Finished building: Lab2.bin
+ 
+ 
+Finished building: Lab2.list
+ 
+08:38:29 **** Incremental Build of configuration Debug for project Lab2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lab2.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\ADUY\251\VXL_VDK\MCU_Lab2\Lab2\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab2.elf
+ 
+arm-none-eabi-size   Lab2.elf 
+arm-none-eabi-objdump -h -S  Lab2.elf  > "Lab2.list"
+arm-none-eabi-objcopy  -O ihex  Lab2.elf  "Lab2.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8316	     48	   1672	  10036	   2734	Lab2.elf
+arm-none-eabi-objcopy  -O binary  Lab2.elf  "Lab2.bin"
+Finished building: default.size.stdout
+ 
+Finished building: Lab2.bin
+Finished building: Lab2.hex
+ 
+Finished building: Lab2.list
+ 
+ 
+08:39:53 **** Incremental Build of configuration Debug for project Lab2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lab2.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\ADUY\251\VXL_VDK\MCU_Lab2\Lab2\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab2.elf
+ 
+arm-none-eabi-size   Lab2.elf 
+arm-none-eabi-objdump -h -S  Lab2.elf  > "Lab2.list"
+arm-none-eabi-objcopy  -O ihex  Lab2.elf  "Lab2.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8316	     48	   1672	  10036	   2734	Lab2.elf
+arm-none-eabi-objcopy  -O binary  Lab2.elf  "Lab2.bin"
+Finished building: default.size.stdout
+ 
+Finished building: Lab2.hex
+Finished building: Lab2.bin
+ 
+ 
+Finished building: Lab2.list
+ 
+08:40:38 **** Incremental Build of configuration Debug for project Lab2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lab2.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\ADUY\251\VXL_VDK\MCU_Lab2\Lab2\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab2.elf
+ 
+arm-none-eabi-size   Lab2.elf 
+arm-none-eabi-objdump -h -S  Lab2.elf  > "Lab2.list"
+arm-none-eabi-objcopy  -O ihex  Lab2.elf  "Lab2.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8316	     48	   1672	  10036	   2734	Lab2.elf
+arm-none-eabi-objcopy  -O binary  Lab2.elf  "Lab2.bin"
+Finished building: default.size.stdout
+ 
+Finished building: Lab2.bin
+Finished building: Lab2.hex
+Finished building: Lab2.list
+ 
+ 
+ 
+08:41:25 **** Incremental Build of configuration Debug for project Lab2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lab2.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\ADUY\251\VXL_VDK\MCU_Lab2\Lab2\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab2.elf
+ 
+arm-none-eabi-size   Lab2.elf 
+arm-none-eabi-objdump -h -S  Lab2.elf  > "Lab2.list"
+arm-none-eabi-objcopy  -O ihex  Lab2.elf  "Lab2.hex"
+arm-none-eabi-objcopy  -O binary  Lab2.elf  "Lab2.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8316	     48	   1672	  10036	   2734	Lab2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lab2.hex
+Finished building: Lab2.bin
+ 
+ 
+Finished building: Lab2.list
+ 
+08:43:10 **** Incremental Build of configuration Debug for project Lab2 ****
+make -j22 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Lab2.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\ADUY\251\VXL_VDK\MCU_Lab2\Lab2\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lab2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Lab2.elf
+ 
+arm-none-eabi-size   Lab2.elf 
+arm-none-eabi-objdump -h -S  Lab2.elf  > "Lab2.list"
+arm-none-eabi-objcopy  -O ihex  Lab2.elf  "Lab2.hex"
+arm-none-eabi-objcopy  -O binary  Lab2.elf  "Lab2.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8292	     48	   1672	  10012	   271c	Lab2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Lab2.hex
+Finished building: Lab2.bin
+ 
+ 
+Finished building: Lab2.list
+ 
