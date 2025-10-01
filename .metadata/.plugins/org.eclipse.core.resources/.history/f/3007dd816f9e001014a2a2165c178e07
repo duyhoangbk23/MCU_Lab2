@@ -185,7 +185,7 @@ void updateLEDMatrix(int index) {
     HAL_GPIO_WritePin(GPIOA,
         ENM0_Pin | ENM1_Pin | ENM2_Pin | ENM3_Pin |
         ENM4_Pin | ENM5_Pin | ENM6_Pin | ENM7_Pin,
-        GPIO_PIN_SET);  // turn off all led
+        GPIO_PIN_SET);  // Tắt tất cả cột (đặt HIGH)
 
     // Display col
     switch(index){
