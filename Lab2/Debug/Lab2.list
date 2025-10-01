@@ -772,8 +772,8 @@ int main(void)
 	setTimer0(250);  // Timer for 7segLED scanning
  8000624:	20fa      	movs	r0, #250	; 0xfa
  8000626:	f7ff fd91 	bl	800014c <setTimer0>
-	setTimer2(10);
- 800062a:	200a      	movs	r0, #10
+	setTimer2(50);
+ 800062a:	2032      	movs	r0, #50	; 0x32
  800062c:	f7ff fdc2 	bl	80001b4 <setTimer2>
 	while (1){
 		//Update Clock
@@ -891,8 +891,8 @@ int main(void)
  80006e0:	4b0e      	ldr	r3, [pc, #56]	; (800071c <main+0x128>)
  80006e2:	2200      	movs	r2, #0
  80006e4:	601a      	str	r2, [r3, #0]
-	        setTimer2(10);
- 80006e6:	200a      	movs	r0, #10
+	        setTimer2(50);
+ 80006e6:	2032      	movs	r0, #50	; 0x32
  80006e8:	f7ff fd64 	bl	80001b4 <setTimer2>
 	    }
 
