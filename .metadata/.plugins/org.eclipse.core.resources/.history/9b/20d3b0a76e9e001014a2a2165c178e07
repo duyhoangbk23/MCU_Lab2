@@ -181,13 +181,13 @@ int index_matrix = 0;
 void updateLEDMatrix(int index) {
     if(index < 0 || index >= MAX_LED_MATRIX) return;
 
-    // Turn off all cols
+    // Tắt tất cả cột trước khi bật cột mới
     HAL_GPIO_WritePin(GPIOA,
         ENM0_Pin | ENM1_Pin | ENM2_Pin | ENM3_Pin |
         ENM4_Pin | ENM5_Pin | ENM6_Pin | ENM7_Pin,
         GPIO_PIN_SET);  // Tắt tất cả cột (đặt HIGH)
 
-    // Display col
+    // Hiển thị cột index
     switch(index){
         case 0: HAL_GPIO_WritePin(GPIOA, ENM0_Pin, GPIO_PIN_RESET); break;
         case 1: HAL_GPIO_WritePin(GPIOA, ENM1_Pin, GPIO_PIN_RESET); break;
@@ -200,11 +200,11 @@ void updateLEDMatrix(int index) {
         default: return; // Nếu col > 7 thì không làm gì
     }
 
-    // Get cols data
+    // get cols data
     uint8_t col_data = matrix_buffer[index];
     col_data=~col_data;
 
-    // Display row with bit in col_data
+//     display row with bit in col_data
     HAL_GPIO_WritePin(GPIOB, ROW0_Pin, (col_data & 0x01) ? GPIO_PIN_SET : GPIO_PIN_RESET);
     HAL_GPIO_WritePin(GPIOB, ROW1_Pin, (col_data & 0x02) ? GPIO_PIN_SET : GPIO_PIN_RESET);
     HAL_GPIO_WritePin(GPIOB, ROW2_Pin, (col_data & 0x04) ? GPIO_PIN_SET : GPIO_PIN_RESET);
