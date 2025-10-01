@@ -176,15 +176,21 @@ uint8_t matrix_buffer[8] = {
 
 int index_matrix = 0;
 
+void DisableMatrixCols(void){
+    HAL_GPIO_WritePin(GPIOA,
+        ENM0_Pin | ENM1_Pin | ENM2_Pin | ENM3_Pin |
+        ENM4_Pin | ENM5_Pin | ENM6_Pin | ENM7_Pin,
+        GPIO_PIN_SET);  // Tắt tất cả cột (đặt HIGH)
+}
+
+
+
 //scan cols
 void updateLEDMatrix(int index) {
     if(index < 0 || index >= MAX_LED_MATRIX) return;
 
     // Tắt tất cả cột trước khi bật cột mới
-    HAL_GPIO_WritePin(GPIOA,
-        ENM0_Pin | ENM1_Pin | ENM2_Pin | ENM3_Pin |
-        ENM4_Pin | ENM5_Pin | ENM6_Pin | ENM7_Pin,
-        GPIO_PIN_SET);  // Tắt tất cả cột (đặt HIGH)
+    DisableMatrixCols();
 
     // Hiển thị cột index
     switch(index){
@@ -214,12 +220,6 @@ void updateLEDMatrix(int index) {
     HAL_GPIO_WritePin(GPIOB, ROW7_Pin, (col_data & 0x80) ? GPIO_PIN_SET : GPIO_PIN_RESET);
 }
 
-void shiftMatrixLeft(uint8_t newColumn) {
-    for (int i = 0; i < MAX_LED_MATRIX - 1; i++) {
-        matrix_buffer[i] = matrix_buffer[i + 1];
-    }
-    matrix_buffer[MAX_LED_MATRIX - 1] = newColumn;
-}
 
 
 
