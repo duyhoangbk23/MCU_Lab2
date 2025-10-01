@@ -306,7 +306,7 @@ int main(void)
 	    }
 
 	    //Shift Left
-	    if (timer2_flag&&timer0_flag){
+	    if (timer2_flag&&timer1_flag){
 	    	shiftMatrixLeft();
 	    }
 	}

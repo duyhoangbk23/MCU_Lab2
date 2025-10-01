@@ -270,7 +270,6 @@ int main(void)
 	setTimer0(250);  // Timer for 7segLED scanning
 	setTimer2(10);
 	while (1){
-		//Update Clock
 	    if(timer1_flag){
 	        // update every sec
 	        HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin); //Toggle Pin PA5
@@ -288,7 +287,6 @@ int main(void)
 	        updateClockBuffer(hour, minute);
 	        setTimer1(1000);
 	    }
-	    //Update 7SEG
 	    if(timer0_flag){
 	        // update every 250 ms
 	        update7SEG(index_led);
@@ -296,7 +294,6 @@ int main(void)
 	        if(index_led >= MAX_LED) index_led = 0;
 	        setTimer0(250);
 	    }
-	    //Update Led Matrix
 	    if(timer2_flag){
 	        // quét matrix mỗi 10ms
 	        updateLEDMatrix(index_matrix);
@@ -304,9 +301,7 @@ int main(void)
 	        if(index_matrix >= MAX_LED_MATRIX) index_matrix = 0;
 	        setTimer2(10);
 	    }
-
-	    //Shift Left
-	    if (timer2_flag&&timer0_flag){
+	    if (timer2_flag&&timer1_flag){
 	    	shiftMatrixLeft();
 	    }
 	}
