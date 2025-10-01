@@ -270,6 +270,8 @@ int main(void)
 	      }
 
 	      if(timer0_flag){
+	          // đổi trạng thái blink matrix
+	          blink_state = !blink_state;
 
 	          // quét 4 digit 7SEG
 	          for(int d = 0; d < MAX_LED; d++){

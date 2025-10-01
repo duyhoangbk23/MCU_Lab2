@@ -56,8 +56,27 @@ static void MX_TIM2_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+static const uint8_t segCode[10] = { 0b1000000, // 0
+		0b1111001, // 1
+		0b0100100, // 2
+		0b0110000, // 3
+		0b0011001, // 4
+		0b0010010, // 5
+		0b0000010, // 6
+		0b1111000, // 7
+		0b0000000, // 8
+		0b0010000  // 9
+		};
 
-//---------Timer---------------
+void display7SEG(int num) {
+	if (num < 0 || num > 9)
+		num = 0;
+
+	for (int i = 0; i < 7; i++) {
+		HAL_GPIO_WritePin(GPIOB, (1 << i),
+				(segCode[num] & (1 << i)) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+	}
+}
 int timer0_counter = 0;
 int timer1_counter = 0;
 int timer0_flag = 0;
@@ -82,34 +101,9 @@ void timer_run(){
 		if(timer1_counter == 0) timer1_flag = 1;
 	}
 }
-
-//------7SEG-LED-------------------
 const int MAX_LED = 4;
 int index_led = 0;
 int led_buffer[4] = { 1, 2, 3, 4 };
-static const uint8_t segCode[10] = {
-		0b1000000, // 0
-		0b1111001, // 1
-		0b0100100, // 2
-		0b0110000, // 3
-		0b0011001, // 4
-		0b0010010, // 5
-		0b0000010, // 6
-		0b1111000, // 7
-		0b0000000, // 8
-		0b0010000  // 9
-		};
-
-void display7SEG(int num) {
-	if (num < 0 || num > 9)
-		num = 0;
-
-	for (int i = 0; i < 7; i++) {
-		HAL_GPIO_WritePin(GPIOB, (1 << i),
-				(segCode[num] & (1 << i)) ? GPIO_PIN_SET : GPIO_PIN_RESET);
-	}
-}
-
 
 void update7SEG(int index) {
 //---------Testing random input-----------------
@@ -146,49 +140,48 @@ void updateClockBuffer (int hour, int minute){
 	led_buffer[2]= minute/10;
 	led_buffer[3]= minute%10;
 }
-//--------Matrix-LED--------
-
 const int MAX_LED_MATRIX = 8;
+/* --- fix matrix buffer type --- */
 uint8_t matrix_buffer[8] = {
-    0b01111110, // Col 0
-    0b10001001, // Col 1
-    0b10001001, // Col 2
-    0b11111111, // Col 3
-    0b10001001, // Col 4
-    0b10001001, // Col 5
-    0b10001001, // Col 6
-    0b10001001  // Col 7
+  0x18, // 00011000
+  0x24, // 00100100
+  0x42, // 01000010
+  0x42, // 01000010
+  0x7E, // 01111110
+  0x42, // 01000010
+  0x42, // 01000010
+  0x00  // trống
 };
 
-int blink_state = 0;
-int index_led_matrix = 0;
-int index_matrix = 0;
+/* blink control (nếu cần) */
+int blink_state = 0; // 0: show, 1: blank
 
-/* xuất ROW0..ROW7 ra PB8..PB15 */
+/* helper - xuất 8 bit ra PB8..PB15 (ROW0..ROW7).
+   đảm bảo trong MX_GPIO_Init bạn khai báo ROW0_Pin..ROW7_Pin là PB8..PB15
+*/
 void outputRowData(uint8_t data) {
+    // ROW0..ROW7 = PB8..PB15
     for (int r = 0; r < 8; r++) {
-        uint16_t pin = (uint16_t)(GPIO_PIN_8 << r); // PB8..PB15
+        uint16_t pin = (uint16_t)(GPIO_PIN_8 << r); // PB8, PB9, ...
         if (data & (1 << r)) HAL_GPIO_WritePin(GPIOB, pin, GPIO_PIN_SET);
         else HAL_GPIO_WritePin(GPIOB, pin, GPIO_PIN_RESET);
     }
 }
 
 void disableAllENM(void) {
+    // ENM pins ở GPIOA theo MX_GPIO_Init của bạn => set = disable (active low assumed)
     HAL_GPIO_WritePin(GPIOA,
         ENM0_Pin|ENM1_Pin|ENM2_Pin|ENM3_Pin|ENM4_Pin|ENM5_Pin|ENM6_Pin|ENM7_Pin,
         GPIO_PIN_SET);
 }
 
-/* quét 1 cột */
-/* quét 1 cột */
+/* updateLEDMatrix theo switch-case (kích hoạt cột tương ứng) */
 void updateLEDMatrix(int index) {
     disableAllENM();
 
     if (blink_state) {
-        // OFF toàn bộ matrix
-        outputRowData(0x00);
+        outputRowData(0x00); // tắt hết
     } else {
-        // ON theo buffer
         uint8_t pattern = matrix_buffer[index];
         outputRowData(pattern);
     }
@@ -205,8 +198,6 @@ void updateLEDMatrix(int index) {
         default: break;
     }
 }
-
-
 
 /* USER CODE END 0 */
 
@@ -249,43 +240,38 @@ int main(void)
 	int hour = 15, minute = 8, second = 50;
 	setTimer1(1000); // Timer for clock update
 	setTimer0(250);  // Timer for LED scanning
-	  while (1){
-	      if(timer1_flag){
-	          // cập nhật đồng hồ mỗi 1s
-	          HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
-	          HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
+	while (1){
+	    if(timer1_flag){
+	        // update every sec
+	        HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin); //Toggle Pin PA5
+	        HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
+	        second++;
+	        if(second >= 60){
+	            second = 0;
+	            minute++;
+	            if(minute >= 60){
+	                minute = 0;
+	                hour++;
+	                if(hour >=24) hour = 0;
+	            }
+	        }
+	        updateClockBuffer(hour, minute);
+	        setTimer1(1000);
+	    }
+        if(timer0_flag){
+            // quét 7SEG
+            update7SEG(index_led);
+            index_led++;
+            if(index_led >= MAX_LED) index_led = 0;
 
-	          second++;
-	          if(second >= 60){
-	              second = 0;
-	              minute++;
-	              if(minute >= 60){
-	                  minute = 0;
-	                  hour++;
-	                  if(hour >= 24) hour = 0;
-	              }
-	          }
-	          updateClockBuffer(hour, minute);
-	          setTimer1(1000);
-	      }
+            // quét LED matrix
+            for (int c = 0; c < MAX_LED_MATRIX; c++) {
+                updateLEDMatrix(c);             // hàm có sẵn: disableAllENM(), outputRowData(...), enable ENMc
+            }
 
-	      if(timer0_flag){
-
-	          // quét 4 digit 7SEG
-	          for(int d = 0; d < MAX_LED; d++){
-	              update7SEG(d);
-	              HAL_Delay(2);
-	          }
-
-	          // quét 8 cột matrix
-	          for(int c = 0; c < MAX_LED_MATRIX; c++){
-	              updateLEDMatrix(c);
-	              HAL_Delay(2);
-	          }
-
-	          setTimer0(250); // giữ nguyên 250ms
-	      }
-	  }
+            setTimer0(250); // reset lại
+        }
+	}
   /* USER CODE END 3 */
 }
 

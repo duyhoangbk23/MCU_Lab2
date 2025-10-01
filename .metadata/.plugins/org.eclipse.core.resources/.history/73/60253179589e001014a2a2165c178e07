@@ -180,15 +180,12 @@ void disableAllENM(void) {
 }
 
 /* quét 1 cột */
-/* quét 1 cột */
 void updateLEDMatrix(int index) {
     disableAllENM();
 
     if (blink_state) {
-        // OFF toàn bộ matrix
         outputRowData(0x00);
     } else {
-        // ON theo buffer
         uint8_t pattern = matrix_buffer[index];
         outputRowData(pattern);
     }
@@ -205,7 +202,6 @@ void updateLEDMatrix(int index) {
         default: break;
     }
 }
-
 
 
 /* USER CODE END 0 */
@@ -251,7 +247,7 @@ int main(void)
 	setTimer0(250);  // Timer for LED scanning
 	  while (1){
 	      if(timer1_flag){
-	          // cập nhật đồng hồ mỗi 1s
+	          // Cập nhật thời gian
 	          HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
 	          HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
 
@@ -262,7 +258,7 @@ int main(void)
 	              if(minute >= 60){
 	                  minute = 0;
 	                  hour++;
-	                  if(hour >= 24) hour = 0;
+	                  if(hour >=24) hour = 0;
 	              }
 	          }
 	          updateClockBuffer(hour, minute);
@@ -270,20 +266,17 @@ int main(void)
 	      }
 
 	      if(timer0_flag){
+	          // Quét 1 digit của 7SEG
+	          update7SEG(index_led);
+	          index_led++;
+	          if(index_led >= MAX_LED) index_led = 0;
 
-	          // quét 4 digit 7SEG
-	          for(int d = 0; d < MAX_LED; d++){
-	              update7SEG(d);
-	              HAL_Delay(2);
-	          }
+	          // Quét 1 cột của LED matrix
+	          updateLEDMatrix(index_matrix);
+	          index_matrix++;
+	          if(index_matrix >= MAX_LED_MATRIX) index_matrix = 0;
 
-	          // quét 8 cột matrix
-	          for(int c = 0; c < MAX_LED_MATRIX; c++){
-	              updateLEDMatrix(c);
-	              HAL_Delay(2);
-	          }
-
-	          setTimer0(250); // giữ nguyên 250ms
+	          setTimer0(2); // gọi lại sau 2ms
 	      }
 	  }
   /* USER CODE END 3 */
